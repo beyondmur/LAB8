@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("keklol.jpg");
+}
+
+.button{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: teal;
+    transition: 0.5s;
+}
+
+.button:hover .lines{
+    filter: brightness(0.7);
+}
+
+.lines,
+.lines::before,
+.lines::after{
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background-color: plum;
+}
+
+.lines{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lines::before{
+    content:'';
+    top: -12px
+}
+
+.lines::after{
+    content:'';
+    top: 12px;
+}
+
+.button_active .button,
+.button_active .lines{
+    background-color: transparent;
+}
+
+.button_active .lines::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.button_active .lines::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.menu{
+    padding-top: 80px;
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    height: 100%;
+    background-color: teal;
+    overflow-y: auto;
+    left: -100%;
+    flex-flow: column;
+    transition: 0.5s;
+}
+
+.button_active .menu{
+    left: 0;
+}
+
+.link{
+    padding: 30px;
+    font-family: sans-serif;
+    color: plum;
+    font-size: 32px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.link:hover{
+    filter: brightness(0.7);
+}
+
+.menu_overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.button_active .menu_overlay {
+    display: block;
+}
